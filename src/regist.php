@@ -56,12 +56,19 @@
                     <input class="w-full px-3 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#12506B] transition text-sm lg:text-base" type="password" id="password" name="password" required placeholder="••••••••">
                 </div>
                 <div>
-                <label class="block text-gray-700 font-semibold mb-1" for="role">Role</label>
-                <select name="role" class="w-full px-3 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#12506B] transition text-sm lg:text-base">
-                    <option value="pencari">Saya Pencari</option>
-                    <option value="pemilik">Saya Pemilik Kos</option>
-                </select>
+                <label class="block text-gray-700 font-semibold mb-1" for="gender">Gender</label>
+                    <select name="gender" class="w-full px-3 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#12506B] transition text-sm lg:text-base">
+                        <option value="Laki-Laki">Laki-Laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                    </select>
                 </div><br>
+                <div>
+                <label class="block text-gray-700 font-semibold mb-1" for="role">Role</label>
+                    <select name="role" class="w-full px-3 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#12506B] transition text-sm lg:text-base">
+                        <option value="pencari">Saya Pencari</option>
+                        <option value="pemilik">Saya Pemilik Kos</option>
+                    </select>
+                    </div><br>
                 <button class="w-full bg-gradient-to-r from-[#12506B] to-[#063D18] text-white py-2 rounded-lg font-semibold shadow-md hover:from-[#12506B] hover:to-[#12506B] transition text-sm lg:text-base" type="submit">
                     Daftar
                 </button>

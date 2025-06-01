@@ -7,6 +7,7 @@ $alamat   = $_POST['alamat'];
 $email    = $_POST['email'];
 $password = $_POST['password'];
 $role     = $_POST['role'];
+$gender   = $_POST['gender'];
 
 $hashed = password_hash($password, PASSWORD_DEFAULT);
 
@@ -30,8 +31,8 @@ if ($stmt->num_rows > 0) {
 $stmt->close();
 
 // Simpan ke database
-$stmt = $conn->prepare("INSERT INTO users (username, email, password, role, telepon, alamat, foto) VALUES (?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("sssssss", $username, $email, $hashed, $role, $telepon, $alamat, $foto);
+$stmt = $conn->prepare("INSERT INTO users (username, email, password, gender, role, telepon, alamat, foto) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssssss", $username, $email, $hashed, $gender, $role, $telepon, $alamat, $foto);
 
 if ($stmt->execute()) {
     header("Location: login_sebagai.php");
