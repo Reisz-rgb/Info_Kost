@@ -1,6 +1,10 @@
 <?php
 include 'koneksi.php';
 session_start();
+
+// Ambil maksimal 6 kos terbaru
+$sql = "SELECT * FROM kost ORDER BY id DESC LIMIT 6";
+$result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -108,52 +112,42 @@ session_start();
         
 
     <!-- Recommended Rooms -->
-    <section class="mt-8 mx-4">
-        <h2 class="text-2xl font-extrabold color-[12506B] text-center">MUNGKIN ANDA SUKA</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-            <div onclick="redirectToRole()" class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
-                <img src="assets/img/bg/km0.png" alt="Room Image" class="w-full h-45 object-cover rounded-lg transition-transform duration-300">
-                <h3 class="mt-2 font-bold text-gray-800 transition-colors duration-300 group-hover:text-green-700">Kost Eksklusif - Kost Putra</h3>
-                <p class="text-gray-600 transition-colors duration-300 group-hover:text-gray-700">Gang Mangga, Sekaran</p>
-                <div class="flex items-center gap-1 mt-1">
-                    <div class="flex text-yellow-400">
-                        <span>★★★★</span><span class="relative inline-block"><span class="absolute inset-0 overflow-hidden w-1/2">★</span>☆</span>
+<section class="mt-8 mx-4">
+    <h2 class="text-2xl font-extrabold text-[#12506B] text-center">MUNGKIN ANDA SUKA</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+        <?php if ($result && $result->num_rows > 0): ?>
+            <?php while ($kost = $result->fetch_assoc()): 
+                $gambar = explode(",", $kost['gambar'])[0]; // Ambil gambar pertama
+                $nama = htmlspecialchars($kost['nama_kos']);
+                $alamat = htmlspecialchars($kost['alamat']);
+                $harga = number_format($kost['harga'], 0, ',', '.');
+            ?>
+                <div onclick="window.location.href='display_produk.php?id=<?php echo $kost['id']; ?>'" 
+                     class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
+                    <img src="<?php echo $gambar; ?>" alt="Gambar Kos" class="w-full h-45 object-cover rounded-lg transition-transform duration-300">
+                    <h3 class="mt-2 font-bold text-gray-800 transition-colors duration-300 group-hover:text-green-700"><?php echo $nama; ?></h3>
+                    <p class="text-gray-600 transition-colors duration-300 group-hover:text-gray-700"><?php echo $alamat; ?></p>
+                    <div class="flex items-center gap-1 mt-1">
+                        <div class="flex text-yellow-400">
+                            <span>★★★★</span><span class="relative inline-block"><span class="absolute inset-0 overflow-hidden w-1/2">★</span>☆</span>
+                        </div>
+                        <span class="text-sm text-gray-500">(4.8)</span>
                     </div>
-                    <span class="text-sm text-gray-500">(5.0)</span>
+                    <p class="text-green-700 font-bold transition-all duration-300 group-hover:text-green-800 group-hover:text-lg">Rp <?php echo $harga; ?></p>
                 </div>
-                <p class="text-green-700 font-bold transition-all duration-300 group-hover:text-green-800 group-hover:text-lg">Rp 999.000</p>
-            </div>
-            <div onclick="redirectToRole()" class="bg-white rounded-lg shadow-lg p-4  transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
-                 <img src="assets/img/bg/km2.png" alt="Room Image" class="w-full h-45 object-cover rounded-lg transition-transform duration-300">
-                <h3 class="mt-2 font-bold">Kos Katcaw - Kost Putri</h3>
-                <p class="text-gray-600">Gang Jeruk, Sekaran</p>
-                <div class="flex items-center gap-1 mt-1">
-                    <div class="flex text-yellow-400">
-                        <span>★★★★</span><span class="relative inline-block"><span class="absolute inset-0 overflow-hidden w-1/2">★</span>☆</span>
-                    </div>
-                    <span class="text-sm text-gray-500">(4.8)</span>
-                </div>
-                <p class="text-green-700 font-bold">Rp 999.000</p>
-            </div>
-            <div onclick="redirectToRole()" class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
-                 <img src="assets/img/bg/km3.png" alt="Room Image" class="w-full h-45 object-cover rounded-lg transition-transform duration-300">
-                <h3 class="mt-2 font-bold">Kost Balaw - Kost Putra</h3>
-                <p class="text-gray-600">Ampel Gading, Kalisegoro</p>
-                <div class="flex items-center gap-1 mt-1">
-                    <div class="flex text-yellow-400">
-                        <span>★★★★</span><span class="relative inline-block"><span class="absolute inset-0 overflow-hidden w-1/2">★</span>☆</span>
-                    </div>
-                    <span class="text-sm text-gray-500">(4.9)</span>
-                </div>
-                <p class="text-green-700 font-bold">Rp 900.000</p>
-            </div>
-        </div>
-        <div class="flex justify-end mt-4">
-            <button onclick="redirectToRole()" class="bg-[#12506B] px-4 py-2 text-white rounded">
+            <?php endwhile; ?>
+        <?php else: ?>
+            <p class="text-center col-span-3 text-gray-600">Belum ada kost yang ditambahkan.</p>
+        <?php endif; ?>
+    </div>
+
+    <div class="flex justify-end mt-4">
+        <a href="semua_kost.php" class="bg-[#12506B] px-4 py-2 text-white rounded hover:bg-[#0f3f52] transition">
             Lihat Semua
-            </button>
-        </div>
-    </section>
+        </a>
+    </div>
+</section>
+
 
     <!-- Recommeded Area-->
     <section class="mt-8 mx-4">
