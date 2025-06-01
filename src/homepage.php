@@ -24,7 +24,22 @@
                 <img src="assets/img/icons/help.png" alt="Pusat Bantuan" class="h-7 w-5">
                 <span class="text-xs">Pusat Bantuan</span>
             </button>
-            <button onclick="redirectToRole()" class=" text-white px-4 py-2 cursor-pointer">Login</button>
+            <div class="relative">
+                <button id="accountBtn" class="flex items-center gap-1 cursor-pointer hover:bg-green-700 px-2 py-1 rounded">
+                    <img src="assets/img/icons/profil.png" alt="Akun" class="h-5 w-5">
+                    <span class="text-xs">Akun</span>
+                    <i class="fas fa-chevron-down text-xs"></i>
+                </button>
+                <div id="accountDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 hidden">
+                    <div class="py-1">
+                        <a href="edit_akun.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profil Saya</a>
+                        <a href="hal_favorit.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Halaman Disukai</a>
+                        <a href="rt_pencari.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Riwayat Pesanan</a>
+                        <hr class="my-1">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Keluar</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -243,6 +258,7 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/pencari.js"></script>
 
 </body>
 </html>

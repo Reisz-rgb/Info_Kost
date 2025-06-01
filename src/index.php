@@ -1,3 +1,8 @@
+<?php
+include 'koneksi.php';
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -24,22 +29,19 @@
                 <img src="assets/img/icons/help.png" alt="Pusat Bantuan" class="h-7 w-5">
                 <span class="text-xs">Pusat Bantuan</span>
             </button>
-            <div class="relative">
-                <button id="accountBtn" class="flex items-center gap-1 cursor-pointer hover:bg-green-700 px-2 py-1 rounded">
-                    <img src="assets/img/icons/profil.png" alt="Akun" class="h-5 w-5">
-                    <span class="text-xs">Akun</span>
-                    <i class="fas fa-chevron-down text-xs"></i>
-                </button>
-                <div id="accountDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 hidden">
-                    <div class="py-1">
-                        <a href="edit_akun.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profil Saya</a>
-                        <a href="hal_favorit.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Halaman Disukai</a>
-                        <a href="rt_pencari.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Riwayat Pesanan</a>
-                        <hr class="my-1">
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Keluar</a>
-                    </div>
-                </div>
-            </div>
+            <?php if (isset($_SESSION['username'])): ?>
+    <?php if ($_SESSION['role'] == 'pencari'): ?>
+        <a href="profil_pencari.php">
+    <?php elseif ($_SESSION['role'] == 'pemilik'): ?>
+        <a href="profil_pemilik.php">
+    <?php endif; ?>
+        <img src="uploads/<?php echo $_SESSION['foto'] ?? 'default.png'; ?>" 
+           alt="foto profil" 
+           class="w-10 h-10 rounded-full border-2 border-white object-cover"/>
+        </a>
+<?php else: ?>
+    <a href="login_sebagai.php" class="hover:underline">Login</a>
+<?php endif; ?>
         </div>
     </header>
 
@@ -258,7 +260,6 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script src="js/pencari.js"></script>
 
 </body>
 </html>

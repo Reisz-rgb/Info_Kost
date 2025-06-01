@@ -32,10 +32,10 @@
     <div id="mobileNav" class="fixed left-[-100%] h-full top-0 w-[60%] bg-[#12506B] transition-all duration-500">
         <h1 class="text-3xl text-gray-400 m-4">Kost Hero</h1>
         <ul class="p-8 text-2xl">
-            <li class="p-4 hover:bg-[#B33328]"><a href="owner.html">Home</a></li>
-            <li class="p-4 hover:bg-[#B33328]"><a href="edit_properti_owner.html">Manajemen Properti</a></li>
-            <li class="p-4 hover:bg-[#B33328]"><a href="riwayat_transaksi_owner.html">Riwayat Transaksi</a></li>
-            <li class="p-4 hover:bg-[#B33328]"><a href="edit_akun.html">Akun</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="owner.php">Home</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="edit_properti_owner.php">Manajemen Properti</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="riwayat_transaksi_owner.php">Riwayat Transaksi</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="edit_akun.php">Akun</a></li>
         </ul>
     </div>
     

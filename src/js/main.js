@@ -1,11 +1,11 @@
 function redirectToLogin() {
-    window.location.href = "login.html";
+    window.location.href = "login.php";
 }
 function redirectToRole() {
-    window.location.href = "login_sebagai.html";
+    window.location.href = "login_sebagai.php";
 }
 function redirectToRegist() {
-    window.location.href = "regist.html";
+    window.location.href = "regist.php";
 } 
 
 // Slideshow functionality

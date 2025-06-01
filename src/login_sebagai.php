@@ -27,7 +27,7 @@
         </div>
 
         <div onclick="redirectToLogin()" class="bg-gray-200 rounded-lg p-4 mb-4 flex items-center transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl cursor-pointer">
-            <img src="assets/img/bg/loginOwner.png" alt="Pencari Kost" class="h-16 mr-4">
+            <img src="assets/img/bg/loginOwner.png" alt="Pemilik Kost" class="h-16 mr-4">
             <span class="font-bold drop-shadow-lg">Pemilik Kost</span>
         </div>
     </div>

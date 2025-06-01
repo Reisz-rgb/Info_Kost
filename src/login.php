@@ -28,7 +28,7 @@
 
             <!-- Form Login -->
             <p class="text-gray-500 font-bold text-center mb-4 text-sm lg:text-base">Masuk ke akun Anda</p>
-            <form>
+            <form method="POST" action="auth_login.php">
                 <div class="mb-4">
                     <label class="block text-gray-700 font-semibold mb-1" for="email">Email</label>
                     <input class="w-full px-3 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#12506B] transition text-sm lg:text-base" type="email" id="email" name="email" required placeholder="you@example.com">

@@ -12,12 +12,12 @@
     <nav class="bg-white shadow-sm">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
-                <a href="index.html" class="text-blue-600 font-bold text-xl">
+                <a href="index.php" class="text-blue-600 font-bold text-xl">
                     <i class="fas fa-home mr-2"></i>Kost Hero
                 </a>
                 <div class="hidden md:flex space-x-6">
-                    <a href="index.html" class="text-gray-600 hover:text-blue-600">Beranda</a>
-                    <a href="search.html" class="text-blue-600 font-semibold">Cari Kost</a>
+                    <a href="index.php" class="text-gray-600 hover:text-blue-600">Beranda</a>
+                    <a href="search.php" class="text-blue-600 font-semibold">Cari Kost</a>
                     <a href="#" class="text-gray-600 hover:text-blue-600">Bantuan</a>
                 </div>
                 <button class="md:hidden">
