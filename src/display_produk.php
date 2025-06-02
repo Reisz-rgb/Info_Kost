@@ -17,7 +17,7 @@ $fasilitas_umum = explode(", ", $kost['fasilitas_umum']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./output.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <title>Kost Putri Griya Mun - Kos Hero</title>
+    <title><?php echo htmlspecialchars($kost['nama_kos']); ?></title>
 </head>
 <body class="bg-gray-50">
 

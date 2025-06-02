@@ -5,6 +5,21 @@ session_start();
 // Ambil maksimal 6 kos terbaru
 $sql = "SELECT * FROM kost ORDER BY id DESC LIMIT 6";
 $result = $conn->query($sql);
+
+
+$search = '';
+if (isset($_GET['search']) && !empty(trim($_GET['search']))) {
+    $search = trim($_GET['search']);
+    $searchEscaped = mysqli_real_escape_string($conn, $search);
+    $query = "SELECT * FROM kost 
+              WHERE nama_kos LIKE '%$searchEscaped%' 
+              OR alamat LIKE '%$searchEscaped%' 
+              OR deskripsi LIKE '%$searchEscaped%'";
+} else {
+    $query = "SELECT * FROM kost";
+}
+
+$result_search = mysqli_query($conn, $query);
 ?>
 
 <!DOCTYPE html>
@@ -97,19 +112,23 @@ $result = $conn->query($sql);
        </div>
     </section>
 
-    <!-- Search Bar -->
-    <section class="mt-4 mx-4">
+<!-- Search Bar -->
+<section class="mt-4 mx-4">
+    <form method="GET" action="search.php">
         <div class="relative w-full">
             <span class="absolute inset-y-0 left-2 flex items-center pl-2 border-gray-300">
                 <img src="assets/img/icons/cari.png" alt="Cari" class="h-5 w-5 text-gray-400">
             </span>
             <input 
                 type="text" 
+                name="search" 
                 placeholder="Cari nama kost, area, atau kampus..." 
-                class="w-full p-4 pl-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#B33328] focus:border-[#B33328] transition-colors"/>
+                class="w-full p-4 pl-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#B33328] focus:border-[#B33328] transition-colors"
+                value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>"
+            />
         </div>
-    </section>  
-        
+    </form>
+</section>  
 
     <!-- Recommended Rooms -->
 <section class="mt-8 mx-4">
@@ -229,9 +248,8 @@ $result = $conn->query($sql);
     <!-- Fitur -->
     <div class="w-full mt-4 flex flex-col flex-1 min-w-[200px]">
         <h4 class="font-bold mb-2">Fitur</h4>
-        <a href="#" class="mb-1 hover:underline">Daftar Akun</a>
+        <a href="regist.php" class="mb-1 hover:underline">Daftar Akun</a>
         <a href="#" class="mb-1 hover:underline">Daftar Favorit</a>
-        <a href="#" class="mb-1 hover:underline">Lacak Pesanan</a>
         <a href="#" class="hover:underline">Bantuan</a>
     </div>
 
