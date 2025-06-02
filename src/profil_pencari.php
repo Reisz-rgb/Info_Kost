@@ -36,7 +36,7 @@ $users = mysqli_fetch_assoc($result);
         <div class="hidden md:flex items-center space-x-4">
             <ul class="flex space-x-4 list-none">
                 <li class="p-4 hover:bg-gray-200"><a href="index.php">Home</a></li>
-                <li class="p-4 hover:bg-gray-200"><a href="edit_properti_owner.php">Manajemen Properti</a></li>
+                <li class="p-4 hover:bg-gray-200"><a href="hal_favorit.php">Favorit</a></li>
                 <li class="p-4 hover:bg-gray-200"><a href="riwayat_transaksi_owner.php">Riwayat Transaksi</a></li>
                 <li class="p-4 hover:bg-gray-200"><a href="edit_akun.php">Edit Akun</a></li>
                 <li class="p-4 hover:bg-gray-200"><a href="log out.php">Log Out</a></li>
@@ -54,7 +54,7 @@ $users = mysqli_fetch_assoc($result);
         <h1 class="text-3xl text-gray-400 m-4">Kost Hero</h1>
         <ul class="p-8 text-2xl">
             <li class="p-4 hover:bg-[#B33328]"><a href="profil_pemilik.php">Home</a></li>
-            <li class="p-4 hover:bg-[#B33328]"><a href="edit_properti_owner.php">Manajemen Properti</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="hal_favorit.php">Favorit</a></li>
             <li class="p-4 hover:bg-[#B33328]"><a href="riwayat_transaksi_owner.php">Riwayat Transaksi</a></li>
             <li class="p-4 hover:bg-[#B33328]"><a href="edit_akun.php">Edit Akun</a></li>
             <li class="p-4 hover:bg-[#B33328]"><a href="log out.php">Log Out</a></li>

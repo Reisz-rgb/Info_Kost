@@ -40,14 +40,6 @@ $result_search = mysqli_query($conn, $query);
             <h1 class="text-xl font-bold">Kost Hero</h1>
         </div>
         <div class="flex items-center space-x-4">
-            <button onclick="redirectToRole()" class="flex items-center gap-1 cursor-pointer"> 
-                <img src="assets/img/icons/notif.png" alt="Notifikasi" class="h-5 w-6">
-                <span class="text-xs">Notifikasi</span>
-            </button>
-            <button onclick="redirectToRole()" class="flex items-center gap-1 cursor-pointer">
-                <img src="assets/img/icons/help.png" alt="Pusat Bantuan" class="h-7 w-5">
-                <span class="text-xs">Pusat Bantuan</span>
-            </button>
             <?php if (isset($_SESSION['username'])): ?>
     <?php if ($_SESSION['role'] == 'pencari'): ?>
         <a href="profil_pencari.php">
@@ -169,46 +161,47 @@ $result_search = mysqli_query($conn, $query);
 
 
     <!-- Recommeded Area-->
-    <section class="mt-8 mx-4">
-        <h2 class="text-2xl font-extrabold text-[#12506B] text-center">REKOMENDASI KOS DI SEKITAR KAMPUS</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-            <div onclick="redirectToRole()" class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
+<section class="mt-8 mx-4">
+    <h2 class="text-2xl font-extrabold text-[#12506B] text-center">REKOMENDASI KOS DI SEKITAR KAMPUS</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+        <div onclick="window.location.href='search.php?q=unnes'" class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
             <img src="assets/img/bg/unnes.png" alt="Area Image" class="w-full h-32 object-contain rounded-lg">
             <h3 class="mt-1 font-bold">UNNES</h3>
             <p class="text-gray-600">Gunungpati, Semarang</p>
-            </div>
-            <div onclick="redirectToRole()" class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
+        </div>
+        <div onclick="window.location.href='search.php?q=undip'" class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
             <img src="assets/img/bg/undip.png" alt="Area Image" class="w-full h-32 object-contain rounded-lg">
             <h3 class="mt-1 font-bold">UNDIP</h3>
             <p class="text-gray-600">Tembalang, Semarang</p>
-            </div>
-            <div onclick="redirectToRole()" class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
+        </div>
+        <div onclick="window.location.href='search.php?q=polines'" class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
             <img src="assets/img/bg/polines.png" alt="Area Image" class="w-full h-32 object-contain rounded-lg">
             <h3 class="mt-1 font-bold">Polines</h3>
             <p class="text-gray-600">Semarang</p>
-            </div>
-            <div onclick="redirectToRole()" class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
+        </div>
+        <div onclick="window.location.href='search.php?q=poltekkes'" class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
             <img src="assets/img/bg/poltekkes.png" alt="Area Image" class="w-full h-32 object-contain rounded-lg">
             <h3 class="mt-1 font-bold">Poltekkes</h3>
             <p class="text-gray-600">Semarang</p>
-            </div>
-            <div onclick="redirectToRole()" class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
+        </div>
+        <div onclick="window.location.href='search.php?q=udinus'" class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
             <img src="assets/img/bg/udinus.png" alt="Area Image" class="w-full h-32 object-contain rounded-lg">
             <h3 class="mt-1 font-bold">Udinus</h3>
             <p class="text-gray-600">Semarang</p>
-            </div>
-            <div onclick="redirectToRole()" class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
+        </div>
+        <div onclick="window.location.href='search.php?q=unisula'" class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
             <img src="assets/img/bg/unisula.png" alt="Area Image" class="w-full h-32 object-contain rounded-lg">
             <h3 class="mt-1 font-bold">Unisula</h3>
             <p class="text-gray-600">Semarang</p>
-            </div>
         </div>
-        <div class="flex justify-end mt-4">
-            <button onclick="redirectToRole()" class="bg-[#12506B] px-4 py-2 text-white rounded">
+    </div>
+
+    <div class="flex justify-end mt-4">
+        <button onclick="window.location.href='search.php'" class="bg-[#12506B] px-4 py-2 text-white rounded">
             Lihat Semua
-            </button>
-        </div>
-    </section>
+        </button>
+    </div>
+</section>
 
        <!-- About Section -->
     <section class="mt-8 mx-4">

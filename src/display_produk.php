@@ -51,6 +51,18 @@ $fasilitas_umum = explode(", ", $kost['fasilitas_umum']);
                     <?php endforeach; ?>
                 </div>
             </div>
+            
+            <form method="get" action="tambah_favorit.php" class="absolute top-3 right-3">
+    <input type="hidden" name="action" value="<?php echo $is_favorit ? 'remove' : 'add'; ?>">
+    <input type="hidden" name="kost_id" value="<?php echo $kost['id']; ?>">
+    <button type="submit" class="p-2 bg-white rounded-full shadow hover:bg-gray-100">
+        <svg class="w-5 h-5 <?php echo $is_favorit ? 'text-red-500' : 'text-gray-400'; ?> fill-current" viewBox="0 0 20 20">
+            <path d="M10 18.35l-1.45-1.32C5.4 14.25 2 11.39 2 8.5 2 6.5 3.5 5 5.5 5
+                    c1.54 0 3.04.99 3.57 2.36h1.87C11.46 5.99 12.96 5 14.5 5
+                    C16.5 5 18 6.5 18 8.5c0 2.89-3.4 5.75-6.55 8.53L10 18.35z"/>
+        </svg>
+    </button>
+</form>
 
             <!-- Kos Information -->
             <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
