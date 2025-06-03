@@ -164,7 +164,7 @@ $result_search = mysqli_query($conn, $query);
 <section class="mt-8 mx-4">
     <h2 class="text-2xl font-extrabold text-[#12506B] text-center">REKOMENDASI KOS DI SEKITAR KAMPUS</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-        <div onclick="window.location.href='search.php?q=unnes'" class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
+        <div onclick="window.location.href='search.php?q=UNNES'" class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
             <img src="assets/img/bg/unnes.png" alt="Area Image" class="w-full h-32 object-contain rounded-lg">
             <h3 class="mt-1 font-bold">UNNES</h3>
             <p class="text-gray-600">Gunungpati, Semarang</p>

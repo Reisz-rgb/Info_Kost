@@ -35,9 +35,15 @@
                     <label class="block text-gray-700 font-semibold mb-1" for="username">Username</label>
                     <input class="w-full px-3 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#12506B] transition text-sm lg:text-base" type="username" id="username" name="username" required placeholder="Budi">
                 </div>
-                <div class="mb-4">
-                    <label class="block text-gray-700 font-semibold mb-1" for="telepon">Nomor Telepon</label>
-                    <input class="w-full px-3 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#12506B] transition text-sm lg:text-base" type="telepon" id="telepon" name="telepon" required placeholder="083233428">
+               <div class="mb-4">
+                <label class="block text-gray-700 font-semibold mb-1" for="telepon">Nomor Telepon (Format Internasional)</label>
+                <input class="w-full px-3 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#12506B] transition text-sm lg:text-base" type="tel"
+                    id="telepon"
+                    name="telepon"
+                    required
+                    placeholder="+6281234567890"
+                    pattern="^\+62[0-9]{9,13}$"
+                    title="Masukkan nomor telepon dalam format internasional, misalnya +6281234567890">
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 font-semibold mb-1" for="foto">Foto Profil</label>

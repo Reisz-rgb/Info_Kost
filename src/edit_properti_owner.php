@@ -1,9 +1,10 @@
 <?php
 include 'koneksi.php';
-session_start();
+session_start(); // pastikan session dimulai di sini juga
 $user_id = $_SESSION['user_id'];
 
-$kostList = mysqli_query($conn, "SELECT * FROM kost WHERE user_id = $user_id");
+$query = "SELECT * FROM kost WHERE user_id = $user_id ORDER BY created_at DESC";
+$kostList = mysqli_query($conn, $query);
 ?>
 
 <!DOCTYPE html>
@@ -69,6 +70,15 @@ $kostList = mysqli_query($conn, "SELECT * FROM kost WHERE user_id = $user_id");
             <input type="number" name="sisa_kamar" class="w-full border-gray-300 rounded-lg">
         </div>
         <div>
+                <label class="block text-gray-700 font-semibold mb-1" for="tipe">Tipe</label>
+                    <select name="tipe" class="w-full px-3 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#12506B] transition text-sm lg:text-base">
+                        <option value="Putra">Putra</option>
+                        <option value="Putri">Putri</option>
+                        <option value="Campur">Campur</option>
+                    </select>
+                </div><br>
+                <div>
+        <div>
             <label class="block text-gray-700 font-medium mb-1">Harga (per bulan)</label>
             <input type="number" name="harga" required class="w-full border-gray-300 rounded-lg">
         </div>
@@ -112,12 +122,16 @@ $kostList = mysqli_query($conn, "SELECT * FROM kost WHERE user_id = $user_id");
 <br>
 
 <!-- Daftar Kos -->
-<h2 class="text-xl font-semibold mb-4" id="manajemen">🏘️ Kos yang Anda Tambahkan</h2>
+<h2 class="text-xl font-semibold mb-4" id="manajemen">Kos yang Anda Miliki</h2>
 <div class="grid grid-cols-2 gap-6">
   <?php
-    include 'koneksi.php';
-    $query = "SELECT * FROM kost ORDER BY created_at DESC";
-    $kostList = mysqli_query($conn, $query);
+include 'koneksi.php';
+session_start(); // pastikan session dimulai di sini juga
+$user_id = $_SESSION['user_id'];
+
+$query = "SELECT * FROM kost WHERE user_id = $user_id ORDER BY created_at DESC";
+$kostList = mysqli_query($conn, $query);
+
 
     while ($kost = mysqli_fetch_assoc($kostList)):
       // Ambil gambar pertama dari daftar gambar (jika ada)

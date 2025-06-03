@@ -5,50 +5,60 @@ include 'koneksi.php';
 $user_id = $_SESSION['user_id'] ?? 0;
 $id = intval($_GET['id'] ?? 0);
 
-// Pastikan kos milik user ini
-$result = mysqli_query($conn, "SELECT * FROM kost WHERE id = $id AND user_id = $user_id");
-$kost = mysqli_fetch_assoc($result);
+// Cek kepemilikan kos
+$stmt = $conn->prepare("SELECT * FROM kost WHERE id = ? AND user_id = ?");
+$stmt->bind_param("ii", $id, $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$kost = $result->fetch_assoc();
+
 if (!$kost) {
     die("Akses ditolak atau kos tidak ditemukan.");
 }
 
-// Proses jika form disubmit
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nama_kos = $_POST['nama_kos'];
     $alamat = $_POST['alamat'];
     $harga = $_POST['harga'];
+    $tipe = $_POST['tipe'];
     $deskripsi = $_POST['deskripsi'];
 
-    // Tangani upload gambar baru jika ada
-    $gambar_baru = '';
+    // Tangani upload gambar baru
+    $gambar_baru = $kost['gambar'];
     if (!empty($_FILES['gambar']['name'][0])) {
         $gambar_list = [];
-        foreach ($_FILES['gambar']['tmp_name'] as $index => $tmp_name) {
-            $filename = "uploads/" . time() . '_' . basename($_FILES['gambar']['name'][$index]);
-            move_uploaded_file($tmp_name, $filename);
-            $gambar_list[] = $filename;
-        }
-        $gambar_baru = implode(',', $gambar_list);
+        $allowed_types = ['image/jpeg', 'image/png', 'image/webp'];
+        $max_size = 2 * 1024 * 1024; // 2MB
 
-        // Hapus gambar lama
-        $gambar_lama = explode(',', $kost['gambar']);
-        foreach ($gambar_lama as $g) {
-            if (file_exists($g)) unlink($g);
+        foreach ($_FILES['gambar']['tmp_name'] as $index => $tmp_name) {
+            $file_type = $_FILES['gambar']['type'][$index];
+            $file_size = $_FILES['gambar']['size'][$index];
+
+            if (!in_array($file_type, $allowed_types) || $file_size > $max_size) {
+                continue; // Skip file tidak valid
+            }
+
+            $filename = "uploads/" . time() . '_' . basename($_FILES['gambar']['name'][$index]);
+            if (move_uploaded_file($tmp_name, $filename)) {
+                $gambar_list[] = $filename;
+            }
         }
-    } else {
-        $gambar_baru = $kost['gambar']; // gunakan gambar lama jika tidak diubah
+
+        if (!empty($gambar_list)) {
+            // Hapus gambar lama
+            $gambar_lama = explode(',', $kost['gambar']);
+            foreach ($gambar_lama as $g) {
+                if (file_exists($g)) unlink($g);
+            }
+            $gambar_baru = implode(',', $gambar_list);
+        }
     }
 
-    // Update data ke database
-    $query = "UPDATE kost SET 
-                nama_kos = '$nama_kos',
-                alamat = '$alamat',
-                harga = '$harga',
-                deskripsi = '$deskripsi',
-                gambar = '$gambar_baru'
-              WHERE id = $id";
+    // Update database
+    $stmt = $conn->prepare("UPDATE kost SET nama_kos = ?, alamat = ?, harga = ?, deskripsi = ?, gambar = ?, tipe = ? WHERE id = ? AND user_id = ?");
+    $stmt->bind_param("ssisssii", $nama_kos, $alamat, $harga, $deskripsi, $gambar_baru, $tipe, $id, $user_id);
 
-    if (mysqli_query($conn, $query)) {
+    if ($stmt->execute()) {
         echo "<script>alert('Data kos berhasil diperbarui.');window.location.href='edit_properti_owner.php';</script>";
     } else {
         echo "<script>alert('Gagal memperbarui kos.');</script>";
@@ -69,19 +79,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <form method="POST" enctype="multipart/form-data">
       <div class="mb-4">
         <label class="block font-semibold mb-1">Nama Kos</label>
-        <input type="text" name="nama_kos" value="<?php echo htmlspecialchars($kost['nama_kos']); ?>" class="w-full p-2 border rounded" required>
+        <input type="text" name="nama_kos" value="<?= htmlspecialchars($kost['nama_kos']) ?>" class="w-full p-2 border rounded" required>
       </div>
       <div class="mb-4">
         <label class="block font-semibold mb-1">Alamat</label>
-        <input type="text" name="alamat" value="<?php echo htmlspecialchars($kost['alamat']); ?>" class="w-full p-2 border rounded" required>
+        <input type="text" name="alamat" value="<?= htmlspecialchars($kost['alamat']) ?>" class="w-full p-2 border rounded" required>
       </div>
       <div class="mb-4">
         <label class="block font-semibold mb-1">Harga (per hari)</label>
-        <input type="number" name="harga" value="<?php echo htmlspecialchars($kost['harga']); ?>" class="w-full p-2 border rounded" required>
+        <input type="number" name="harga" value="<?= htmlspecialchars($kost['harga']) ?>" class="w-full p-2 border rounded" required>
       </div>
       <div class="mb-4">
         <label class="block font-semibold mb-1">Deskripsi</label>
-        <textarea name="deskripsi" class="w-full p-2 border rounded" rows="4"><?php echo htmlspecialchars($kost['deskripsi']); ?></textarea>
+        <textarea name="deskripsi" class="w-full p-2 border rounded" rows="4"><?= htmlspecialchars($kost['deskripsi']) ?></textarea>
+      </div>
+      <div class="mb-4">
+        <label class="block font-semibold mb-1">Tipe</label>
+        <select name="tipe" class="w-full p-2 border rounded">
+            <option value="Putra" <?= $kost['tipe'] == 'Putra' ? 'selected' : '' ?>>Putra</option>
+            <option value="Putri" <?= $kost['tipe'] == 'Putri' ? 'selected' : '' ?>>Putri</option>
+            <option value="Campur" <?= $kost['tipe'] == 'Campur' ? 'selected' : '' ?>>Campur</option>
+        </select>
       </div>
       <div class="mb-4">
         <label class="block font-semibold mb-1">Gambar Baru (boleh lebih dari satu)</label>

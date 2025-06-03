@@ -1,6 +1,5 @@
 <?php
 include 'koneksi.php';
-// Contoh ambil data user berdasarkan sesi login
 session_start();
 // Pastikan user sudah login
 if (!isset($_SESSION['username'])) {
@@ -37,7 +36,7 @@ $users = mysqli_fetch_assoc($result);
             <ul class="flex space-x-4 list-none">
                 <li class="p-4 hover:bg-gray-200"><a href="index.php">Home</a></li>
                 <li class="p-4 hover:bg-gray-200"><a href="hal_favorit.php">Favorit</a></li>
-                <li class="p-4 hover:bg-gray-200"><a href="riwayat_transaksi_owner.php">Riwayat Transaksi</a></li>
+                <li class="p-4 hover:bg-gray-200"><a href="rt_pencari.php">Riwayat Transaksi</a></li>
                 <li class="p-4 hover:bg-gray-200"><a href="edit_akun.php">Edit Akun</a></li>
                 <li class="p-4 hover:bg-gray-200"><a href="log out.php">Log Out</a></li>
             </ul>

@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label class="block text-sm font-medium">Username</label>
-          <input type="text" name="nama" value="<?= htmlspecialchars($user['username']) ?>" class="mt-1 w-full p-2 border border-gray-300 rounded"/>
+          <input type="text" name="username" value="<?= htmlspecialchars($user['username']) ?>" class="mt-1 w-full p-2 border border-gray-300 rounded"/>
         </div>
         <div>
           <label class="block text-sm font-medium">Gender</label>
@@ -90,21 +90,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <!-- Email -->
       <div>
         <label class="block text-sm font-medium">Email</label>
-        <input type="email" name="email" class="mt-1 w-full p-2 border border-gray-300 rounded" value="<?= htmlspecialchars($users['email']) ?>">
+        <input type="email" name="email" class="mt-1 w-full p-2 border border-gray-300 rounded" value="<?= htmlspecialchars($user['email']) ?>">
       </div>
 
       <!-- Alamat -->
       <div>
         <label class="block text-sm font-medium">Alamat</label>
-        <input type="text" name="alamat" class="mt-1 w-full p-2 border border-gray-300 rounded" value="<?= htmlspecialchars($users['alamat']) ?>">
+        <input type="text" name="alamat" class="mt-1 w-full p-2 border border-gray-300 rounded" value="<?= htmlspecialchars($user['alamat']) ?>">
       </div>
 
       <!-- Telepon -->
-      <div>
-        <label class="block text-sm font-medium">Telepon</label>
-        <input type="text" name="telepon" class="mt-1 w-full p-2 border border-gray-300 rounded" value="<?= htmlspecialchars($users['telepon']) ?>">
+      <div class="mb-4">
+          <label class="block text-gray-700 font-semibold mb-1" for="telepon">Nomor Telepon (Format Internasional)</label>
+          <input class="w-full px-3 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#12506B] transition text-sm lg:text-base" type="tel"
+              id="telepon"
+              name="telepon"
+              required
+              placeholder="+6281234567890"
+              pattern="^\+62[0-9]{9,13}$"
+              title="Masukkan nomor telepon dalam format internasional, misalnya +6281234567890"
+              value="<?= htmlspecialchars($user['telepon']) ?>">
       </div>
-
+      
       <!-- Foto Profil -->
       <div>
         <label class="block text-sm font-medium">Foto Profil</label>
@@ -112,11 +119,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                class="mt-1 w-full p-2 border border-gray-300 rounded"/>
       </div>
 
-      <!-- Password -->
+     <!-- Password -->
       <div>
         <label class="block text-sm font-medium">Password</label>
-        <input type="password"
-               class="mt-1 w-full p-2 border border-gray-300 rounded"/>
+        <input type="password" name="password"
+              class="mt-1 w-full p-2 border border-gray-300 rounded"/>
       </div>
 
       <!-- Tombol -->

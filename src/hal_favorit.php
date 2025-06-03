@@ -29,19 +29,38 @@ $fav_result = $stmt->get_result();
 </head>
 <body class="bg-gray-50">
     <!-- Header -->
-    <header class="bg-white shadow-sm border-b">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <h1 class="text-xl font-bold text-gray-900">Kost Hero</h1>
-                </div>
-                <nav class="hidden md:flex space-x-8">
-                    <a href="index.php" class="text-gray-500 hover:text-gray-900">Beranda</a>
-                    <a href="hal_favorti.php" class="text-blue-600 font-medium">Favorit</a>
-                </nav>
-            </div>
+    <header class="bg-[#063D18] text-white p-4 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <img src="assets/img/logo.png" alt="Logo" class="h-10 w-10">
+            <h1 class="text-xl font-bold">Kost Hero</h1>
         </div>
+        <div class="hidden md:flex items-center space-x-4">
+            <ul class="flex space-x-4 list-none">
+                <li class="p-4 hover:bg-gray-200"><a href="index.php">Home</a></li>
+                <li class="p-4 hover:bg-gray-200"><a href="hal_favorit.php">Favorit</a></li>
+                <li class="p-4 hover:bg-gray-200"><a href="rt_pencari.php">Riwayat Transaksi</a></li>
+                <li class="p-4 hover:bg-gray-200"><a href="edit_akun.php">Edit Akun</a></li>
+                <li class="p-4 hover:bg-gray-200"><a href="log out.php">Log Out</a></li>
+            </ul>
+        </div>
+
+        <button id="toggleNav" class="block md:hidden mr-6">
+            <img id="menuIcon" src="assets/img/icons/menu.png" alt="Menu" class="w-6 h-6 text-gray-400">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </button>
+        
     </header>
+    
+    <div id="mobileNav" class="fixed left-[-100%] h-full top-0 w-[60%] bg-[#12506B] transition-all duration-500">
+        <h1 class="text-3xl text-gray-400 m-4">Kost Hero</h1>
+        <ul class="p-8 text-2xl">
+            <li class="p-4 hover:bg-[#B33328]"><a href="profil_pemilik.php">Home</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="hal_favorit.php">Favorit</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="riwayat_transaksi_owner.php">Riwayat Transaksi</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="edit_akun.php">Edit Akun</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="log out.php">Log Out</a></li>
+        </ul>
+    </div>
 
     <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

@@ -11,6 +11,7 @@ $nama_kos = $_POST['nama_kos'];
 $alamat = $_POST['alamat'];
 $deskripsi = $_POST['deskripsi'];
 $sisa = $_POST['sisa_kamar'];
+$tipe = $_POST['tipe'];
 $harga = $_POST['harga'];
 
 $fasilitas_kamar = isset($_POST['fasilitas_kamar']) ? implode(", ", $_POST['fasilitas_kamar']) : '';
@@ -39,8 +40,8 @@ $gambar_joined = !empty($gambar_paths) ? implode(",", $gambar_paths) : '';
 
 // Simpan ke database
 $user_id = $_SESSION['user_id'];
-$sql = "INSERT INTO kost (nama_kos, alamat, harga, deskripsi, gambar, user_id, sisa_kamar, fasilitas_kamar, fasilitas_umum) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO kost (nama_kos, alamat, deskripsi, gambar, tipe, harga, user_id, sisa_kamar, fasilitas_kamar, fasilitas_umum)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 $stmt = $conn->prepare($sql);
 if ($stmt === false) {
@@ -48,9 +49,9 @@ if ($stmt === false) {
 }
 
 $stmt->bind_param(
-    "ssdssiiss",
-    $nama_kos, $alamat, $harga, $deskripsi, $gambar_joined, 
-    $user_id, $sisa, $fasilitas_kamar, $fasilitas_umum
+    "sssssiisss",
+    $nama_kos, $alamat, $deskripsi, $gambar_joined, $tipe,
+    $harga, $user_id, $sisa, $fasilitas_kamar, $fasilitas_umum
 );
 
 if ($stmt->execute()) {
