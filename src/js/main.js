@@ -77,7 +77,7 @@ function prevSlide() {
 
 // Auto-slide functionality
 function startAutoSlide() {
-    return setInterval(nextSlide, 7000); // Change slide every 7 seconds
+    return setInterval(nextSlide, 5000); // Change slide every 5 seconds
 }
 
 // Initialize slideshow when page loads
@@ -127,6 +127,7 @@ function startCountdown() {
 
         if (timeLeft <= 0) {
             // Countdown finished
+            document.getElementById('days').textContent = '00';
             document.getElementById('hours').textContent = '00';
             document.getElementById('minutes').textContent = '00';
             document.getElementById('seconds').textContent = '00';
@@ -134,12 +135,14 @@ function startCountdown() {
             return;
         }
 
-        // Calculate hours, minutes, seconds
-        const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+        // Calculate days, hours, minutes, seconds
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
         // Update display with leading zeros
+        document.getElementById('days').textContent = days.toString().padStart(2, '0');
         document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
         document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
         document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
