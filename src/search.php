@@ -325,6 +325,6 @@ $jumlah_kost = count($kost_list);
         <div class="container mx-auto px-4 text-center">
             <p>&copy; 2024 Kost Hero. All rights reserved.</p>
         </div>
-    </footer>
+    </footer> 
 </body>
 </html></nav></p></div></p></div>
