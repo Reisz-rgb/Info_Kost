@@ -229,7 +229,7 @@ $result_search = mysqli_query($conn, $query);
         <h4 class="font-bold mb-2">Fitur</h4>
         <a href="regist.php" class="mb-1 hover:underline">Daftar Akun</a>
         <a href="hal_favorit.php" class="mb-1 hover:underline">Daftar Favorit</a>
-        <a href="#" class="hover:underline">Bantuan</a>
+        <a href="hal_bantuan.php" class="hover:underline">Bantuan</a>
     </div>
 
     <!-- Secure Payment -->

@@ -116,38 +116,73 @@ $jumlah_kost = count($kost_list);
 </head>
 <body class="bg-gray-50">
     <!-- Navbar -->
-    <nav class="bg-white shadow-sm">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <a href="index.php" class="text-blue-600 font-bold text-xl">
-                    <i class="fas fa-home mr-2"></i>Kost Hero
-                </a>
-                <div class="hidden md:flex space-x-6">
-                    <a href="index.php" class="text-gray-600 hover:text-blue-600">Beranda</a>
-                    <a href="search.php" class="text-blue-600 font-semibold">Cari Kost</a>
-                    <a href="#" class="text-gray-600 hover:text-blue-600">Bantuan</a>
-                </div>
-                <button class="md:hidden">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
+    <header class="bg-[#063D18] text-white p-4 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <img src="assets/img/logo.png" alt="Logo" class="h-10 w-10">
+            <h1 class="text-xl font-bold">Kost Hero</h1>
         </div>
-    </nav>
+        
+        <!-- Search Bar -->
+        <div class="hidden md:flex flex-1 max-w-md mx-8">
+            <form method="GET" action="search.php" class="w-full">
+                <div class="relative">
+                    <input 
+                        type="text" 
+                        name="search" 
+                        value="<?= htmlspecialchars($search) ?>" 
+                        placeholder="Cari kost berdasarkan nama, alamat, atau deskripsi..." 
+                        class="w-full px-4 py-2 pl-10 pr-4 text-gray-800 rounded-lg bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#B33328] focus:border-[#B33328] transition-colors"
+                    >
+                    <img src="assets/img/icons/cari.png" alt="Cari" class="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400">
+                </div>
+            </form>
+        </div>
+        
+        <div class="hidden md:flex items-center space-x-4">
+            <ul class="flex space-x-4 list-none">
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="index.php" class="block w-full">Home</a></li>
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="hal_favorit.php" class="block w-full">Favorit</a></li>
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="rt_pencari.php" class="block w-full">Riwayat Transaksi</a></li>
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="edit_akun.php" class="block w-full">Edit Akun</a></li>
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="log out.php" class="block w-full">Log Out</a></li>
+            </ul>
+        </div>
 
-    <!-- Search Header -->
-    <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-8">
-        <div class="container mx-auto px-4">
-            <h1 class="text-2xl font-bold mb-4">Hasil Pencarian Kost</h1>
-            <div class="flex flex-wrap gap-4">
-                <div class="flex-1 min-w-64">
-                    <input type="text" placeholder="Cari lokasi..." class="w-full px-4 py-2 rounded-lg text-gray-800">
-                </div>
-                <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-2 rounded-lg font-semibold">
-                    <i class="fas fa-search mr-2"></i>Cari
-                </button>
+        <button id="toggleNav" class="block md:hidden mr-6">
+            <img id="menuIcon" src="assets/img/icons/menu.png" alt="Menu" class="w-6 h-6 text-gray-400">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </button>
+        
+    </header>
+    
+    <!-- Mobile Search Bar -->
+    <div class="md:hidden bg-white p-4 shadow-sm ">
+        <form method="GET" action="search.php">
+            <div class="relative">
+                <input 
+                    type="text" 
+                    name="search" 
+                    value="<?= htmlspecialchars($search) ?>" 
+                    placeholder="Cari kost..." 
+                    class="w-full px-4 py-2 pl-10 pr-4 text-gray-800 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B33328] focus:border-[#B33328] transition-colors"
+                >
+                <img src="assets/img/icons/cari.png" alt="Cari" class="h-5 w-5 text-gray-400">
             </div>
-        </div>
+        </form>
     </div>
+    
+    <div id="mobileNav" class="fixed left-[-100%] h-full top-0 w-[60%] bg-[#12506B] transition-all duration-500">
+        <h1 class="text-3xl text-gray-400 m-4">Kost Hero</h1>
+        <ul class="p-8 text-2xl">
+            <li class="p-4 hover:bg-[#B33328]"><a href="profil_pemilik.php">Home</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="hal_favorit.php">Kos Favorit</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="riwayat_transaksi_owner.php">Riwayat Transaksi</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="edit_akun.php">Edit Akun</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="log out.php">Log Out</a></li>
+        </ul>
+    </div>
+
+    
 
     <!-- Main Content -->
     <div class="container mx-auto px-4 py-8">
@@ -214,7 +249,7 @@ $jumlah_kost = count($kost_list);
             </div>
         </div>
 
-        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-semibold">
+        <button type="submit" class="w-full bg-[#12506B] hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-semibold">
             Terapkan Filter
         </button>
     </form>
@@ -251,7 +286,7 @@ $jumlah_kost = count($kost_list);
                     <i class="fas fa-map-marker-alt mr-1"></i><?= htmlspecialchars($kost['alamat']) ?>
                 </p>
                 <div class="flex items-center justify-between">
-                    <span class="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-3 py-1 rounded-full text-sm font-bold">
+                    <span class="bg-gradient-to-r from-[#12506B] to-blue-800 text-white px-3 py-1 rounded-full text-sm font-bold">
                         Rp <?= number_format($kost['harga'], 0, ',', '.') ?>/bulan
                     </span>
                 </div>
@@ -273,7 +308,7 @@ $jumlah_kost = count($kost_list);
                         <button class="px-3 py-2 bg-gray-200 text-gray-600 rounded-lg">
                             <i class="fas fa-chevron-left"></i>
                         </button>
-                        <button class="px-3 py-2 bg-blue-600 text-white rounded-lg">1</button>
+                        <button class="px-3 py-2 bg-[#12506B] text-white rounded-lg">1</button>
                         <button class="px-3 py-2 bg-gray-200 text-gray-600 rounded-lg hover:bg-gray-300">2</button>
                         <button class="px-3 py-2 bg-gray-200 text-gray-600 rounded-lg hover:bg-gray-300">3</button>
                         <button class="px-3 py-2 bg-gray-200 text-gray-600 rounded-lg">
