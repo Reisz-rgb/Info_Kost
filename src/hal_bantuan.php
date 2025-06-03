@@ -8,31 +8,42 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
         rel="stylesheet"
     />
+     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex h-16">
-                <a href="/" class="flex items-center space-x-2">
-                    <svg
-                        class="h-8 w-8 text-blue-600"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                        />
-                    </svg>
-                    <span class="text-2xl font-bold text-blue-600">Kost Hero</span>
-                </a>
-            </div>
+ <!-- Header -->
+    <header class="bg-[#063D18] text-white p-4 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <img src="assets/img/logo.png" alt="Logo" class="h-10 w-10">
+            <h1 class="text-xl font-bold">Kost Hero</h1>
         </div>
-    </nav>
+        <div class="hidden md:flex items-center space-x-4">
+            <ul class="flex space-x-4 list-none">
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="index.php" class="block w-full">Home</a></li>
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="hal_favorit.php" class="block w-full">Favorit</a></li>
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="rt_pencari.php" class="block w-full">Riwayat Transaksi</a></li>
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="edit_akun.php" class="block w-full">Edit Akun</a></li>
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="log out.php" class="block w-full">Log Out</a></li>
+            </ul>
+        </div>
+
+        <button id="toggleNav" class="block md:hidden mr-6">
+            <img id="menuIcon" src="assets/img/icons/menu.png" alt="Menu" class="w-6 h-6 text-gray-400">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </button>
+        
+    </header>
+    
+    <div id="mobileNav" class="fixed left-[-100%] h-full top-0 w-[60%] bg-[#12506B] transition-all duration-500">
+        <h1 class="text-3xl text-gray-400 m-4">Kost Hero</h1>
+        <ul class="p-8 text-2xl">
+            <li class="p-4 hover:bg-[#B33328]"><a href="profil_pemilik.php">Home</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="hal_favorit.php">Kos Favorit</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="riwayat_transaksi_owner.php">Riwayat Transaksi</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="edit_akun.php">Edit Akun</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="log out.php">Log Out</a></li>
+        </ul>
+    </div>
 
     <main>
         <!-- Header -->

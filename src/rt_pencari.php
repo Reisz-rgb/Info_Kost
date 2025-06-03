@@ -52,20 +52,22 @@ $result = $stmt->get_result();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Riwayat Pemesanan - Kost Hero</title>
     <link href="./output.css" rel="stylesheet">
+     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 font-sans">
-        <header class="bg-[#063D18] text-white p-4 flex justify-between items-center">
+ <!-- Header -->
+    <header class="bg-[#063D18] text-white p-4 flex justify-between items-center">
         <div class="flex items-center space-x-2">
             <img src="assets/img/logo.png" alt="Logo" class="h-10 w-10">
             <h1 class="text-xl font-bold">Kost Hero</h1>
         </div>
         <div class="hidden md:flex items-center space-x-4">
             <ul class="flex space-x-4 list-none">
-                <li class="p-4 hover:bg-gray-200"><a href="index.php">Home</a></li>
-                <li class="p-4 hover:bg-gray-200"><a href="hal_favorit.php">Favorit</a></li>
-                <li class="p-4 hover:bg-gray-200"><a href="rt_pencari.php">Riwayat Transaksi</a></li>
-                <li class="p-4 hover:bg-gray-200"><a href="edit_akun.php">Edit Akun</a></li>
-                <li class="p-4 hover:bg-gray-200"><a href="log out.php">Log Out</a></li>
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="index.php" class="block w-full">Home</a></li>
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="hal_favorit.php" class="block w-full">Favorit</a></li>
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="rt_pencari.php" class="block w-full">Riwayat Transaksi</a></li>
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="edit_akun.php" class="block w-full">Edit Akun</a></li>
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="log out.php" class="block w-full">Log Out</a></li>
             </ul>
         </div>
 
@@ -75,6 +77,17 @@ $result = $stmt->get_result();
         </button>
         
     </header>
+    
+    <div id="mobileNav" class="fixed left-[-100%] h-full top-0 w-[60%] bg-[#12506B] transition-all duration-500">
+        <h1 class="text-3xl text-gray-400 m-4">Kost Hero</h1>
+        <ul class="p-8 text-2xl">
+            <li class="p-4 hover:bg-[#B33328]"><a href="profil_pemilik.php">Home</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="hal_favorit.php">Kos Favorit</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="riwayat_transaksi_owner.php">Riwayat Transaksi</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="edit_akun.php">Edit Akun</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="log out.php">Log Out</a></li>
+        </ul>
+    </div>
 
     <!-- Main Content -->
     <div class="container mx-auto px-4 py-8">

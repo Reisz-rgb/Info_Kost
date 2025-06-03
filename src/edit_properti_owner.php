@@ -17,6 +17,7 @@ $kostList = mysqli_query($conn, $query);
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-text-gray-400 bg-gray-50">
+<!-- Header -->
     <header class="bg-[#063D18] text-white p-4 flex justify-between items-center">
         <div class="flex items-center space-x-2">
             <img src="assets/img/logo.png" alt="Logo" class="h-10 w-10">
@@ -24,11 +25,12 @@ $kostList = mysqli_query($conn, $query);
         </div>
         <div class="hidden md:flex items-center space-x-4">
             <ul class="flex space-x-4 list-none">
-                <li class="p-4 hover:bg-gray-200"><a href="index.php">Home</a></li>
-                <li class="p-4 hover:bg-gray-200"><a href="edit_properti_owner.php">Manajemen Properti</a></li>
-                <li class="p-4 hover:bg-gray-200"><a href="riwayat_transaksi_owner.php">Riwayat Transaksi</a></li>
-                <li class="p-4 hover:bg-gray-200"><a href="edit_akun.php">Edit Akun</a></li>
-                <li class="p-4 hover:bg-gray-200"><a href="log out.php">Log Out</a></li>
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="index.php" class="block w-full">Home</a></li>
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="hal_favorit.php" class="block w-full">Favorit</a></li>
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="riwayat_transaksi_owner.php" class="block w-full">Riwayat Transaksi</a></li>
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="edit_properti_owner.php" class="block w-full">Manajemen Kost</a></li>
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="edit_akun.php" class="block w-full">Edit Akun</a></li>
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="log out.php" class="block w-full">Log Out</a></li>
             </ul>
         </div>
 
@@ -43,12 +45,15 @@ $kostList = mysqli_query($conn, $query);
         <h1 class="text-3xl text-gray-400 m-4">Kost Hero</h1>
         <ul class="p-8 text-2xl">
             <li class="p-4 hover:bg-[#B33328]"><a href="profil_pemilik.php">Home</a></li>
-            <li class="p-4 hover:bg-[#B33328]"><a href="edit_properti_owner.php">Manajemen Properti</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="hal_favorit.php">Kos Favorit</a></li>
             <li class="p-4 hover:bg-[#B33328]"><a href="riwayat_transaksi_owner.php">Riwayat Transaksi</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="edit_properti_owner.php">Manajemen Kost</a></li>
             <li class="p-4 hover:bg-[#B33328]"><a href="edit_akun.php">Edit Akun</a></li>
             <li class="p-4 hover:bg-[#B33328]"><a href="log out.php">Log Out</a></li>
         </ul>
     </div>
+
+
 <main class="bg-gray-50 py-8">
 <div class="max-w-4xl mx-auto px-4 py-8 bg-white rounded-xl shadow-md">
     <h2 class="text-2xl font-bold text-gray-800 mb-6">Tambah Data Kos</h2>
