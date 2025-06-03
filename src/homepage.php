@@ -62,9 +62,10 @@
                         <div class="mt-4 bg-gray-200 opacity-80 px-4 py-2 rounded-lg inline-block stroke-linejoin">
                             <div class="text-xs">Penawaran berakhir dalam:</div>
                             <div id="countdown" class="mt-2 stroke-linejoin font-bold">
-                                <span id="hours" class="border border-[#807878] bg-white px-2 rounded">23</span>:
-                                <span id="minutes" class="border border-[#807878] bg-white px-2 rounded">59</span>:
-                                <span id="seconds" class="border border-[#807878] bg-white px-2 rounded">59</span>
+                                <span id="days" class="border border-[#807878] bg-white px-2 rounded"></span>:
+                                <span id="hours" class="border border-[#807878] bg-white px-2 rounded"></span>:
+                                <span id="minutes" class="border border-[#807878] bg-white px-2 rounded"></span>:
+                                <span id="seconds" class="border border-[#807878] bg-white px-2 rounded"></span>
                             </div>
                         </div>
                     </h1>

@@ -55,7 +55,7 @@ $fav_result = $stmt->get_result();
         <h1 class="text-3xl text-gray-400 m-4">Kost Hero</h1>
         <ul class="p-8 text-2xl">
             <li class="p-4 hover:bg-[#B33328]"><a href="profil_pemilik.php">Home</a></li>
-            <li class="p-4 hover:bg-[#B33328]"><a href="hal_favorit.php">Favorit</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="hal_favorit.php">Kos Favorit</a></li>
             <li class="p-4 hover:bg-[#B33328]"><a href="riwayat_transaksi_owner.php">Riwayat Transaksi</a></li>
             <li class="p-4 hover:bg-[#B33328]"><a href="edit_akun.php">Edit Akun</a></li>
             <li class="p-4 hover:bg-[#B33328]"><a href="log out.php">Log Out</a></li>
@@ -78,7 +78,7 @@ $fav_result = $stmt->get_result();
             <form method="POST" action="hapus_favorit.php" class="absolute top-2 right-2">
             <input type="hidden" name="kost_id" value="<?php echo $kost['id']; ?>">
             <button type="submit" class="p-1.5 bg-white rounded-full shadow-md hover:bg-gray-50 transition-colors">
-            <svg class="w-4 h-4 text-red-500 fill-current" viewBox="0 0 20 20">
+            <svg class="w-4 h-4 text-red-600 fill-current" viewBox="0 0 20 20">
             <path d="M10 18.35l-1.45-1.32C5.4 14.25 2 11.39 2 8.5
             2 6.5 3.5 5 5.5 5c1.54 0 3.04.99 3.57 2.36h1.87
             C11.46 5.99 12.96 5 14.5 5
