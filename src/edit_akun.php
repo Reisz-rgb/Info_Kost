@@ -105,7 +105,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" name="telepon" class="mt-1 w-full p-2 border border-gray-300 rounded" value="<?= htmlspecialchars($users['telepon']) ?>">
       </div>
 
-
       <!-- Foto Profil -->
       <div>
         <label class="block text-sm font-medium">Foto Profil</label>
