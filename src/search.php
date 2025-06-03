@@ -125,7 +125,7 @@ $jumlah_kost = count($kost_list);
                 <div class="hidden md:flex space-x-6">
                     <a href="index.php" class="text-gray-600 hover:text-blue-600">Beranda</a>
                     <a href="search.php" class="text-blue-600 font-semibold">Cari Kost</a>
-                    <a href="#" class="text-gray-600 hover:text-blue-600">Bantuan</a>
+                    <a href="hal_bantuan.php" class="text-gray-600 hover:text-blue-600">Bantuan</a>
                 </div>
                 <button class="md:hidden">
                     <i class="fas fa-bars"></i>
