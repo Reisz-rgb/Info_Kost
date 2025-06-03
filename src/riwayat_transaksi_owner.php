@@ -64,6 +64,7 @@ $result = $stmt->get_result();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+<!-- Header -->
     <header class="bg-[#063D18] text-white p-4 flex justify-between items-center">
         <div class="flex items-center space-x-2">
             <img src="assets/img/logo.png" alt="Logo" class="h-10 w-10">
@@ -71,26 +72,31 @@ $result = $stmt->get_result();
         </div>
         <div class="hidden md:flex items-center space-x-4">
             <ul class="flex space-x-4 list-none">
-                <li class="p-4 hover:bg-gray-200"><a href="profil_pemilik.php">Home</a></li>
-                <li class="p-4 hover:bg-gray-200"><a href="hal_favorit.php">Favorit</a></li>
-                <li class="p-4 hover:bg-gray-200"><a href="riwayat_transaksi_owner.php">Riwayat Transaksi</a></li>
-                <li class="p-4 hover:bg-gray-200"><a href="edit_akun.php">Edit Akun</a></li>
-                <li class="p-4 hover:bg-gray-200"><a href="log out.php">Log Out</a></li>
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="index.php" class="block w-full">Home</a></li>
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="hal_favorit.php" class="block w-full">Favorit</a></li>
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="riwayat_transaksi_owner.php" class="block w-full">Riwayat Transaksi</a></li>
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="edit_properti_owner.php" class="block w-full">Manajemen Kost</a></li>
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="edit_akun.php" class="block w-full">Edit Akun</a></li>
+                <li class="px-4 py-2 rounded-md transition-colors duration-200 hover:bg-white/10 hover:text-gray-100"><a href="log out.php" class="block w-full">Log Out</a></li>
             </ul>
         </div>
+
         <button id="toggleNav" class="block md:hidden mr-6">
             <img id="menuIcon" src="assets/img/icons/menu.png" alt="Menu" class="w-6 h-6 text-gray-400">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
         </button>
+        
     </header>
     
     <div id="mobileNav" class="fixed left-[-100%] h-full top-0 w-[60%] bg-[#12506B] transition-all duration-500">
         <h1 class="text-3xl text-gray-400 m-4">Kost Hero</h1>
         <ul class="p-8 text-2xl">
             <li class="p-4 hover:bg-[#B33328]"><a href="profil_pemilik.php">Home</a></li>
-            <li class="p-4 hover:bg-[#B33328]"><a href="hal_favorit.php">Favorit</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="hal_favorit.php">Kos Favorit</a></li>
             <li class="p-4 hover:bg-[#B33328]"><a href="riwayat_transaksi_owner.php">Riwayat Transaksi</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="edit_properti_owner.php">Manajemen Kost</a></li>
             <li class="p-4 hover:bg-[#B33328]"><a href="edit_akun.php">Edit Akun</a></li>
-            <li class="p-4 hover:bg-[#B33328]"><a href="logout.php">Log Out</a></li>
+            <li class="p-4 hover:bg-[#B33328]"><a href="log out.php">Log Out</a></li>
         </ul>
     </div>
 
