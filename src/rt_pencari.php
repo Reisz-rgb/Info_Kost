@@ -96,7 +96,7 @@ $result = $stmt->get_result();
     <div class="flex flex-col md:flex-row gap-4">
         <div class="flex-1">
             <label for="status" class="block text-sm font-medium text-gray-700 mb-2">Status Pemesanan</label>
-            <select name="status" id="status" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+            <select name="status" id="status" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#12506B] focus:border-transparent">
                 <option value="">Semua Status</option>
                 <option value="Menunggu Pembayaran" <?= isset($_GET['status']) && $_GET['status'] == 'Menunggu Pembayaran' ? 'selected' : '' ?>>Menunggu Pembayaran</option>
                 <option value="Selesai" <?= isset($_GET['status']) && $_GET['status'] == 'Selesai' ? 'selected' : '' ?>>Selesai</option>
@@ -105,7 +105,7 @@ $result = $stmt->get_result();
         </div>
         <div class="flex-1">
             <label for="periode" class="block text-sm font-medium text-gray-700 mb-2">Periode</label>
-            <select name="periode" id="periode" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+            <select name="periode" id="periode" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-bg-[#12506B]focus:border-transparent">
                 <option value="">Semua Waktu</option>
                 <option value="30" <?= isset($_GET['periode']) && $_GET['periode'] == '30' ? 'selected' : '' ?>>30 Hari Terakhir</option>
                 <option value="90" <?= isset($_GET['periode']) && $_GET['periode'] == '90' ? 'selected' : '' ?>>3 Bulan Terakhir</option>
@@ -114,7 +114,7 @@ $result = $stmt->get_result();
             </select>
         </div>
         <div class="flex items-end gap-2">
-            <button type="submit" name="filter" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+            <button type="submit" name="filter" class="bg-[#12506B] text-white px-6 py-2 rounded-lg hover:bg-bg-[#12506B] transition-colors">
                 <i class="fas fa-search mr-2"></i>Filter
             </button>
             <?php if(isset($_GET['filter'])): ?>
@@ -175,7 +175,7 @@ $result = $stmt->get_result();
                     <div class="md:text-right">
                         <p class="text-gray-500">Check-in: <?= $checkin->format('d M Y') ?></p>
                         <p class="text-gray-500">Check-out: <?= $checkout->format('d M Y') ?></p>
-                        <p class="text-lg font-bold text-blue-600 mt-2">
+                        <p class="text-lg font-bold text-[#12506B] mt-2">
                             Rp <?= number_format($row['harga'] * $row['durasi'], 0, ',', '.') ?>
                         </p>
                     </div>
@@ -189,7 +189,7 @@ $result = $stmt->get_result();
             <i class="fas fa-inbox text-6xl text-gray-400 mb-4"></i>
             <h3 class="text-xl font-semibold text-gray-600 mb-2">Belum Ada Riwayat Pemesanan</h3>
             <p class="text-gray-500 mb-6">Mulai cari kost impian Anda sekarang!</p>
-            <a href="cari_kost.php" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+            <a href="cari_kost.php" class="bg-[#12506B] text-white px-6 py-3 rounded-lg hover:bg-[#12506B] transition-colors">
                 <i class="fas fa-search mr-2"></i>Cari Kost
             </a>
         </div>
@@ -198,12 +198,9 @@ $result = $stmt->get_result();
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8 mt-12">
-        <div class="container mx-auto px-4">
-            <div class="text-center">
-                <h4 class="text-xl font-bold mb-2">Kost Hero</h4>
-                <p class="text-gray-400">Platform terpercaya untuk menemukan kost terbaik</p>
-            </div>
+    <footer class="bg-[#063D18] text-white py-8 mt-12">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Kost Hero. All rights reserved.</p>
         </div>
     </footer>
 
