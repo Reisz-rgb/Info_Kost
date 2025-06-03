@@ -197,12 +197,7 @@ $result = $stmt->get_result();
 </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-[#063D18] text-white py-8 mt-12">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2024 Kost Hero. All rights reserved.</p>
-        </div>
-    </footer>
+
 
 <script src=""></script>
 </body>
