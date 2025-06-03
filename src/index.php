@@ -6,7 +6,6 @@ session_start();
 $sql = "SELECT * FROM kost ORDER BY id DESC LIMIT 6";
 $result = $conn->query($sql);
 
-
 $search = '';
 if (isset($_GET['search']) && !empty(trim($_GET['search']))) {
     $search = trim($_GET['search']);
@@ -138,12 +137,7 @@ $result_search = mysqli_query($conn, $query);
                     <img src="<?php echo $gambar; ?>" alt="Gambar Kos" class="w-full h-45 object-cover rounded-lg transition-transform duration-300">
                     <h3 class="mt-2 font-bold text-gray-800 transition-colors duration-300 group-hover:text-green-700"><?php echo $nama; ?></h3>
                     <p class="text-gray-600 transition-colors duration-300 group-hover:text-gray-700"><?php echo $alamat; ?></p>
-                    <div class="flex items-center gap-1 mt-1">
-                        <div class="flex text-yellow-400">
-                            <span>★★★★</span><span class="relative inline-block"><span class="absolute inset-0 overflow-hidden w-1/2">★</span>☆</span>
-                        </div>
-                        <span class="text-sm text-gray-500">(4.8)</span>
-                    </div>
+
                     <p class="text-green-700 font-bold transition-all duration-300 group-hover:text-green-800 group-hover:text-lg">Rp <?php echo $harga; ?></p>
                 </div>
             <?php endwhile; ?>
@@ -153,7 +147,7 @@ $result_search = mysqli_query($conn, $query);
     </div>
 
     <div class="flex justify-end mt-4">
-        <a href="semua_kost.php" class="bg-[#12506B] px-4 py-2 text-white rounded hover:bg-[#0f3f52] transition">
+        <a href="search.php" class="bg-[#12506B] px-4 py-2 text-white rounded hover:bg-[#0f3f52] transition">
             Lihat Semua
         </a>
     </div>
@@ -169,27 +163,27 @@ $result_search = mysqli_query($conn, $query);
             <h3 class="mt-1 font-bold">UNNES</h3>
             <p class="text-gray-600">Gunungpati, Semarang</p>
         </div>
-        <div onclick="window.location.href='search.php?q=undip'" class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
+        <div onclick="window.location.href='search.php?q=UNDIP'" class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
             <img src="assets/img/bg/undip.png" alt="Area Image" class="w-full h-32 object-contain rounded-lg">
             <h3 class="mt-1 font-bold">UNDIP</h3>
             <p class="text-gray-600">Tembalang, Semarang</p>
         </div>
-        <div onclick="window.location.href='search.php?q=polines'" class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
+        <div onclick="window.location.href='search.php?q=POLINES'" class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
             <img src="assets/img/bg/polines.png" alt="Area Image" class="w-full h-32 object-contain rounded-lg">
             <h3 class="mt-1 font-bold">Polines</h3>
             <p class="text-gray-600">Semarang</p>
         </div>
-        <div onclick="window.location.href='search.php?q=poltekkes'" class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
+        <div onclick="window.location.href='search.php?q=POLTEKES'" class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
             <img src="assets/img/bg/poltekkes.png" alt="Area Image" class="w-full h-32 object-contain rounded-lg">
             <h3 class="mt-1 font-bold">Poltekkes</h3>
             <p class="text-gray-600">Semarang</p>
         </div>
-        <div onclick="window.location.href='search.php?q=udinus'" class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
+        <div onclick="window.location.href='search.php?q=UDINUS'" class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
             <img src="assets/img/bg/udinus.png" alt="Area Image" class="w-full h-32 object-contain rounded-lg">
             <h3 class="mt-1 font-bold">Udinus</h3>
             <p class="text-gray-600">Semarang</p>
         </div>
-        <div onclick="window.location.href='search.php?q=unisula'" class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
+        <div onclick="window.location.href='search.php?q=UNISULA'" class="bg-white rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 cursor-pointer group">
             <img src="assets/img/bg/unisula.png" alt="Area Image" class="w-full h-32 object-contain rounded-lg">
             <h3 class="mt-1 font-bold">Unisula</h3>
             <p class="text-gray-600">Semarang</p>
@@ -230,19 +224,11 @@ $result_search = mysqli_query($conn, $query);
         </div>
     </div>
 
-    <!-- Informasi -->
-    <div class="w-full mt-4 flex flex-col flex-1 min-w-[200px]">
-        <h4 class="font-bold mb-2">Informasi</h4>
-        <a href="#" class="mb-1 hover:underline">Tentang Kami</a>
-        <a href="#" class="mb-1 hover:underline">Kebijakan Privasi</a>
-        <a href="#" class="hover:underline">Syarat & Ketentuan</a>
-    </div>
-
     <!-- Fitur -->
     <div class="w-full mt-4 flex flex-col flex-1 min-w-[200px]">
         <h4 class="font-bold mb-2">Fitur</h4>
         <a href="regist.php" class="mb-1 hover:underline">Daftar Akun</a>
-        <a href="#" class="mb-1 hover:underline">Daftar Favorit</a>
+        <a href="hal_favorit.php" class="mb-1 hover:underline">Daftar Favorit</a>
         <a href="#" class="hover:underline">Bantuan</a>
     </div>
 
