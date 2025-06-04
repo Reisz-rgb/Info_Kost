@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt->execute();
 
     // Kirim email menggunakan PHPMailer
-    $reset_link = "http://localhost/reset_password.php?token=$token";
+    $reset_link = "http://herokost.my.id//reset_password.php?token=$token";
 
     $mail = new PHPMailer(true);
     try {
@@ -40,13 +40,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Konten email
         $mail->isHTML(true);
         $mail->Subject = 'Reset Password Kost Hero';
-        $mail->Body    = "Klik link berikut untuk reset password Anda:<br><a href='$reset_link'>$reset_link</a>";
+        $mail->Body = "Klik link berikut untuk reset password Anda:<br><a href=\"$reset_link\">$reset_link</a><br><br>Jika tidak bisa diklik, salin dan tempel link ini di browser Anda:<br>$reset_link";
         $mail->AltBody = "Klik link ini untuk reset password Anda: $reset_link";
 
         $mail->send();
-        echo "Link reset telah dikirim ke email Anda.";
+        header("Location: login_sebagai.php");
+        exit;
     } catch (Exception $e) {
         echo "Gagal mengirim email. Error: {$mail->ErrorInfo}";
+        header("Location: login_sebagai.php");
+        exit;
     }
 
     $conn->close();
