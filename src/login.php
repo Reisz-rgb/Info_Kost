@@ -46,6 +46,11 @@
             <p class="mt-4 text-center text-gray-600 text-xs lg:text-sm">
                 Belum punya akun? <a onclick="redirectToRegist()" class="text-blue-600 font-semibold hover:underline cursor-pointer">Daftar</a>
             </p>
+
+            <!-- Link Lupa Password -->
+            <p class="mt-3 text-center text-gray-600 text-xs lg:text-sm">
+                Lupa password? <a href="forgot_password.php" class="text-blue-600 font-semibold hover:underline">Reset di sini</a>
+            </p>
         </div>
     </div>
     <script src="js/main.js"></script>
