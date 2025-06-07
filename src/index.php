@@ -1,6 +1,7 @@
 <?php
 include 'koneksi.php';
 session_start();
+header("Content-Disposition: attachment; filename=index.php");
 
 // Ambil maksimal 6 kos terbaru
 $sql = "SELECT * FROM kost ORDER BY id DESC LIMIT 6";
